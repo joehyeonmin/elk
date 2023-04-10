@@ -1,0 +1,28 @@
+version: "3"
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.7.0
+    user: root
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./filebeat/log:/var/log:ro
+    command: filebeat -e
+    networks:
+      - elastic
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.7.0
+    user: root
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+      - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    ports:
+      - "5044:5044"
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge
