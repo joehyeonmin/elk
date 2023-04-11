@@ -12,5 +12,5 @@
 
 4. 다른 서버에서 logstash를 바라보는 filebeat 구축
 
-5. local Mac에서 logstash로 커넥션 불가 (이유를 모르겠음)
+5. local Mac에서 logstash로 커넥션 불가 (이유를 모르겠음) / mac은 airplay로 5000번 포트 사용
 
