@@ -7,6 +7,7 @@ logstash - Logstash는 다양한 소스로부터 데이터를 수집하고 전�
 kibana - Kibana는 로그 및 이벤트 검토에 사용하는 데이터 시각화 및 탐색 도구
 
 Beats - 서버에 에이전트로 설치하여 다양한 유형의 데이터를 ElasticSearch 또는 Logstash에 전송하는 오픈 소스 데이터 발송
+      - filebeat.yml의 path에는 docker container의 log 경로를 적어줘야함(docker-compose volumes의 a:b -> b)
 
 # 동작
 
